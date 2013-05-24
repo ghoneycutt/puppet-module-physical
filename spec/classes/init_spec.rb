@@ -47,7 +47,7 @@ describe 'physical' do
 
     it {
       expect {
-        should have_class_count(0)
+        should include_class('hp')
       }.to raise_error(Puppet::Error, /Manufacturer <invalid> is not supported./)
     }
   end
