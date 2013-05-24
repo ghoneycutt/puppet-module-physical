@@ -1,5 +1,7 @@
-# puppet-module-physical #
-===
+# ghoneycutt/physical #
+
+[![Build Status](
+https://api.travis-ci.org/ghoneycutt/puppet-module-physical.png)](https://travis-ci.org/ghoneycutt/puppet-module-physical)
 
 Meant to be applied to *ALL* physical nodes from ghoneycutt/common
 
