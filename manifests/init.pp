@@ -27,6 +27,9 @@ class physical (
         include hp
       }
     }
+    'Supermicro': {
+      #We don't do anything with this
+    }
     default: {
       fail("Manufacturer <${::manufacturer}> is not supported.")
     }

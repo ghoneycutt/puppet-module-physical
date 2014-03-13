@@ -39,6 +39,16 @@ describe 'physical' do
 
   end
 
+  describe 'should not include hp class if supermicro' do
+
+    let :facts do
+      { :manufacturer => 'Supermicro' }
+    end
+
+    it { should_not contain_class('hp') }
+
+  end
+
   describe 'should fail on unsupported' do
     let :facts do
       { :manufacturer => 'invalid' }
