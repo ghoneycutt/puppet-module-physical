@@ -1,42 +1,24 @@
 require 'spec_helper'
 describe 'physical' do
 
-  describe 'should include hp class if enabled' do
+  describe 'when manufacturer is hp' do
+    [true,'true'].each do |value|
+      context "and enable_hp parameter is set to #{value}" do
+        let(:facts) { { :manufacturer => 'hp' } }
+        let(:params) { { :enable_hp => value } }
 
-    let :facts do
-      { :manufacturer => 'hp' }
-    end
-    let :params do
-      { :enable_hp => true }
-    end
-
-    it { should contain_class('hp') }
-
-  end
-  describe 'should not include hp class if disabled' do
-
-    let :facts do
-      { :manufacturer => 'hp' }
-    end
-    let :params do
-      { :enable_hp => false }
+        it { should contain_class('hp') }
+      end
     end
 
-    it { should_not contain_class('hp') }
+    [false,'false'].each do |value|
+      context "and enable_hp parameter is set to #{value}" do
+        let(:facts) { { :manufacturer => 'hp' } }
+        let(:params) { { :enable_hp => value } }
 
-  end
-
-  describe 'should accept string input for hp' do
-
-    let :facts do
-      { :manufacturer => 'hp' }
+        it { should_not contain_class('hp') }
+      end
     end
-    let :params do
-      { :enable_hp => "true" }
-    end
-
-    it { should contain_class('hp') }
-
   end
 
   describe 'should fail on unsupported' do
