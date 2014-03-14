@@ -28,7 +28,7 @@ class physical (
       }
     }
     default: {
-      fail("Manufacturer <${::manufacturer}> is not supported.")
+      notice('manufacturer was not detected. Please consider sending a pull request to https://github.com/ghoneycutt/puppet-module-physical')
     }
   }
 }
