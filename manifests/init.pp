@@ -17,18 +17,18 @@ class physical (
   case $::manufacturer {
     'hp': {
       # validate type and convert string to boolean if necessary
-      $enable_hp_type = type($enable_hp)
-      if $enable_hp_type == 'string' {
-        $hp_enabled = str2bool($enable_hp)
+      if type($enable_hp) == 'string' {
+        $enable_hp_real= str2bool($enable_hp)
       } else {
-        $hp_enabled = $enable_hp
+        $enable_hp_real = $enable_hp
       }
-      if $hp_enabled == true {
+
+      if $enable_hp_real == true {
         include hp
       }
     }
     default: {
-      fail("Manufacturer <${::manufacturer}> is not supported.")
+      notice('manufacturer was not detected. Please consider sending a pull request to https://github.com/ghoneycutt/puppet-module-physical')
     }
   }
 }
