@@ -6,8 +6,12 @@ describe 'physical' do
   describe 'when manufacturer is hp' do
     [true,'true'].each do |value|
       context "and enable_hp parameter is set to #{value}" do
-        let(:facts) { { :manufacturer => 'hp' } }
         let(:params) { { :enable_hp => value } }
+        let(:facts) do
+          { :manufacturer    => 'hp',
+            :operatingsystem => 'CentOS',
+          }
+        end
 
         it { should contain_class('physical') }
 
@@ -17,8 +21,12 @@ describe 'physical' do
 
     [false,'false'].each do |value|
       context "and enable_hp parameter is set to #{value}" do
-        let(:facts) { { :manufacturer => 'hp' } }
         let(:params) { { :enable_hp => value } }
+        let(:facts) do
+          { :manufacturer    => 'hp',
+            :operatingsystem => 'CentOS',
+          }
+        end
 
         it { should contain_class('physical') }
 
