@@ -3,5 +3,6 @@ fixtures:
     stdlib: 'git://github.com/puppetlabs/puppetlabs-stdlib.git'
     hp: 'git://github.com/ghoneycutt/puppet-module-hp.git'
     psp: 'git://github.com/razorsedge/puppet-psp.git'
+    snmp: 'git://github.com/razorsedge/puppet-snmp.git'
   symlinks:
     physical: "#{source_dir}"
